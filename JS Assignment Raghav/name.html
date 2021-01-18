@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtName" placeholder="Enter Name" />
+    <input type="submit" name="submit" value="submit" onclick="checkname()" />
+</body>
+<script>
+    function checkname(){
+        var txt=document.getElementById('txtName').value;
+        var array = txt.split('.');
+        var errors = [];
+		var array1 = txt.split(' ');
+        
+        console.log(array);
+        console.log("a1 "+array1.length);
+		console.log("array1 "+array1)
+        if(array.length==4){
+			if(array[3]=='' || array[3]=='.'){
+				    errors.push("last name is not a word");
+			}
+			console.log(array[3]);
+		}
+		if(array.length==1){
+            console.log("IF 1");
+			var name=array[0].split(' ');
+            console.log("Name length "+name.length);
+			if(name.length == 3){
+			
+                if(name[0].length>1 && name[1].length>1 && name[2].length>1){
+                    alert("Name Accepted");
+                }
+                else if(name[0][0]!=name[0][0].toUpperCase() ||name[1][0]!=name[1][0].toUpperCase() ||name[2][0]!=name[2][0].toUpperCase() ){
+                    errors.push("Incorrect Capitalization");
+                }
+                else if(name[2].length==1 ){
+                    errors.push("last name is not a word");
+                }
+				
+                else{
+                    alert("Name Accepted");
+                }
+                
+            }else{    
+                errors.push("Invalid Name...A name must be either 2 or 3 terms long");     
+            }
+        }
+        else if(array.length==2){
+            console.log("IF 2");
+			var name=array[1].split(' ');
+			//console.log(name);
+			if(name[1][0]!='.'){
+				//errors.push("initials must end with dot");
+			}
+			if(array[0][0]!=array[0][0].toUpperCase() ||array[1][0]!=array[1][0].toUpperCase()){
+                errors.push("Incorrect Capitalization");
+            }
+            else if(array[1].indexOf(' ') > 0){
+                console.log("Hello "+array[1].indexOf(' '));
+				errors.push("initials must end with dot");
+            }
+			else if(name[1][0]!='.'){
+				errors.push("initials must end with dot");
+			}
+            else{
+                alert("Name Accepted");
+            }    
+        } 
+        else if(array.length==3){
+            console.log("IF 3");
+			if(array[0].length==1 && array[1].length>1 && array[1].indexOf(' ') > 0){
+			
+				errors.push("middle name expanded, while first still left as initial");
+            }
+            else if(array[0].length==1 && array[1].length==1 && array[2].length==1 ){
+                errors.push("last name is not a word");
+            }
+            else if(array[0].length>1 && txt[array[0].length]=='.'){
+                errors.push("dot only allowed after initial, not word");
+            }
+            else if(array[0][0]!=array[0][0].toUpperCase() ||array[1][0]!=array[1][0].toUpperCase() ||array[2][0]!=array[2][0].toUpperCase() ){
+                errors.push("Incorrect Capitalization");
+            }
+			else{
+                alert("Name Accepted");
+            }
+        }
+        
+        
+       
+        /*
+        if(array.length==1){
+            errors.push("single names not allowed");
+        }
+        
+        if(txt.indexOf(' ') >= 0){
+            errors.push("initials must end with dot");
+        }
+        for(i=0;i<array.length;i++){
+            if(array[i][0]!=array[i][0].toUpperCase()){
+                errors.push("Incorrect Capitalization");
+            }
+        }*/
+           
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+            return false;
+        }
+        
+        return true;
+    }
+</script>
+</html>

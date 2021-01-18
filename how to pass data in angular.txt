@@ -1,0 +1,36 @@
+import {FormsModule} from '@angular/forms'; and add it to import
+In Welcome.ts 
+---------import:import { ActivatedRoute, Router } from '@angular/router';
+--------- model:any={};
+---------constructor(private router: Router,private route: ActivatedRoute) { }
+---------saveCall(){
+    console.log("Welcome"+this.model.title);
+    //jQuery("#myForm").modal("hide");
+      this.router.navigate(['nextpage'], {
+        queryParams: { data: JSON.stringify(this.model.title) },
+      });
+
+	}
+In WelcomePage.html
+-------<form name='myForm' >
+			<div>
+				<input type="text" name="title"  [(ngModel)]="model.title" #title="ngModel" > 
+			</div>
+			<div>
+				<input type="submit" value="submit" (click)="saveCall()"> 
+			</div>
+		</form>  
+In NextPage.ts
+-------data:any;
+-------constructor(private router: Router,private route:ActivatedRoute) { 
+			console.log("In NExtPage");
+		}
+--------ngOnInit(): void {
+			this.route.queryParams.subscribe((params)=>{
+			  console.log(params);
+			  this.data=JSON.parse(params.data)
+			})
+		  }
+In nextpage.html
+-------
+<h4>Hello,{{data}}</h4>

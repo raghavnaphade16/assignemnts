@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <h1> <title>Title </title></h1>
+    <style>
+        /* Styling for classes */
+        .maincont{
+            background-color:#292847; 
+            width: 50%;
+            padding: 15px 15px 0px 25px;
+        }
+        .form-lable{
+            font-size: 18px;
+            margin-bottom: 3px;
+            color: white;
+            font-weight: 500;
+            
+        }
+        .form-container{
+            margin-top: 10px;
+        }
+        .form-list{
+            color: black;
+            font-size: 18px;
+        }
+        /* Styling for ID  */
+        #name-txt{
+            width: 80%;
+   
+        }
+        #email-txt{
+            width: 80%;
+        }
+        #age-txt{
+            width: 80%;
+        } 
+        #dropdown-currole{
+            width: 80%;
+        }
+        #txtarea{
+            width: 80%;
+            height: 200px;
+        }
+        #btnsubmit{
+            width: 80%;
+            margin: 20px 50px 20px 50px;
+            background-color: #36B161;
+            color: white;
+            font-weight: 500;
+        }
+        /* Styling for tags */
+        li{
+            list-style: none;
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <div class="container maincont">
+        <form id="survey-form">
+            <!-- Name -->
+            <div class="container form-container">
+                <div class="row ">
+                    <label class="form-lable" id="name-lable">Name</label>
+                </div>
+                <div class="row">
+                    <input type="text" name="name-txt" id="name-txt" placeholder="Enter your name"  />
+                </div>
+            </div>
+            <!-- Email -->
+            <div class="container form-container">
+                <div class="row">
+                    <label class="form-lable" id="email-lable" >Email</label>
+                </div>
+                <div class="row">
+                    <input type = "email" name="email-txt" id="email-txt" placeholder="Enter your Email" />
+                </div>
+            </div>
+            <!-- Age -->
+            <div class="container form-container">
+                <div class="row">
+                    <label class="form-lable" id="age-lable" >Age(optional)</label>
+                </div>
+                <div class="row">
+                    <input type = "number" min = "5" max = "100" step "1" name="age-txt" id="age-txt" placeholder="Age" />
+                </div>
+            </div>
+            <!-- Current Role -->
+            <div class="container form-container">
+                <div class="row">
+                    <label class="form-lable" for="currole-lable" id="curlbl">Which option best describes your current role?</label>
+                </div>
+                <div class="row">
+                    <select class="form-list" name="dropdown-currole" id="dropdown-currole" >
+                        <option value="" disabled selected>Select Your Current Role</option>
+                        <option value="software developer">Software Developer</option>
+                        <option value="software tester">Software Tester</option>
+                        <option value="cloude developer">Cloude Developer</option>
+                        <option value="BA">Business Analyst</option>
+                    </select> 
+                </div>                
+            </div>
+            <!--Recommand-->
+            <div class="container form-container">
+                <div class="row">
+                    <label class="form-lable" for="recommand" id="rec-lbl">Would you recommend using HTML/CSS to your friend?</label>
+                </div>
+                <div class="row">
+                    <li>
+                        <input type="radio" id="definitely" name="recommand" value="definitely">
+                        <label class="form-lable" for="definitely">Definitely</label>
+                    </li>
+                </div>
+                <div class="row">
+                    <li>
+                        <input type="radio" id="MayBe" name="recommand" value="maybe">
+                        <label class="form-lable" for="maybe">May Be</label>
+                    </li>
+                </div>
+                <div class="row">
+                    <li>
+                        <input type="radio" id="notsure" name="notsure" value="notsure">
+                        <label class="form-lable" for="notsure">Not Sure</label>
+                    </li>
+                </div>
+               
+                        
+            </div>
+            
+            <!-- feature -->
+            <div class="container form-container">
+                <div class="row">
+                    <label class="form-lable" for="feature-lable" id="lbl-f">What is your favorite feature of HTML/CSS?</label>
+                </div>
+                <div class="row">
+                    <select class="form-list" name="dropdown-feature" id="dropdown-feature">
+                        <option value="" disabled selected>Projects</option>
+                        <option value="platform independent">platform independent</option>
+                        <option value="Imagesvideoaudio">Images, video and audio can be added to a web page</option>
+                        
+                      </select> 
+                </div>                
+            </div>
+            
+            <!-- improvisation -->
+            <div class="container form-container">
+                <div class="row">
+                    <label class="form-lable" for="impr-lable" id="lbl-impr">What would you like to see improved?(check all that apply)</label>
+                </div>
+                <div class="row"> 
+                        <div class="container">   
+                            <div class="row">
+                                <li>
+                                    <input type="checkbox" id="front-end-projects" name="front-end-projects" value="front-end-projects" />
+                                    <label class="form-lable" for="front-end-projects">Front-end Projects</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input id="back-end-projects" type="checkbox" name="back-end-projects" value="back-end-projects" />
+                                    <label class="form-lable" for="back-end-projects">Back-end Projects</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input type="checkbox" id="datavisualization" name="datavisualization" value="datavisualization">
+                                    <label class="form-lable" for="datavisualization">Data Visualization</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input id="challenges" type="checkbox" name="challenges" value="challenges" />
+                                    <label class="form-lable" for="challenges">Challenges</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input id="checkiopen-source-com" type="checkbox" name="open-source-com" value="open-source-com" />
+                                    <label class="form-lable"  for="open-source-com">Open Source Community</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input id="gitter-helps-room" type="checkbox" name="gitter-helps-room" value="gitter-helps-room" />
+                                    <label class="form-lable"  for="gitter-helps-room">Gitter helps room</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input id="city-meetups" type="checkbox" name="city-meetups" value="city-meetups"/>
+                                    <label class="form-lable"  for="citymeetups"> City Meetups</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input id="wiki" type="checkbox" name="wiki" value="wiki"/>
+                                    <label class="form-lable"  for="wiki"> Wiki</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input id="forum" type="checkbox" name="forum" value="forum"/>
+                                    <label class="form-lable" for="forum"> Forum</label>
+                                </li>
+                            </div>
+                            <div class="row">
+                                <li>
+                                    <input id="additional-courses" type="checkbox" name="additional-courses" value="additional-courses">
+                                    <label class="form-lable"  for="additional-courses"> Additional Courses</label>
+                                </li>
+                            </div>
+                        </div>
+                </div>
+            </div>                
+            
+            <!--comments-->
+            <div class="container form-container">
+                <div class="row">
+                    <label class="form-lable"  id="comment-lable">Comments</label>
+                </div>
+                <div class="row">
+                    <textarea id="txtarea" name="comment" form="">Enter text here...</textarea>
+                </div>
+            </div>
+            <!--Submit-->
+            <div class="container form-container">
+                <div class="row">
+                    <input type="submit" class="btn " id="btnsubmit" value="Submit" />             
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

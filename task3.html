@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!--Google Icon-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <!-- fontawesome Icon-->
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <style>
+        /* Styling for Tags */
+        body {
+            position: relative;
+        }
+        textarea {
+            resize: none;
+        }
+
+        /* Styling for Classes */
+        .navbar-nav{
+            flex-direction: row;
+            padding-right: 0px;
+        }
+        .nav>li{
+            padding-right: 3px;
+        }
+        .nav>li>a{
+            color: black;
+        }
+        .navpills{
+            display: block;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .navpills>a{
+            font-size: 20px;
+            margin-top: 10px;
+            color: black;
+        }
+
+        .main-section{
+            height: auto;
+            font-size: 11px;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+            
+        }
+        .menu{
+            border-style: solid; border-width: 2px;
+            padding-top: 10px;
+            border-top: none;
+            border-right: none;
+            color: black;
+        }
+        .footbtn{
+            background-color: #656A7E;
+        }
+        .innermenu{
+            width:100%;
+            
+        }
+        
+        /* Styling for ID */
+        #header{
+            height: 70px;
+            background-color: #1E1F26;
+        }
+        #btn1{
+            height: 50px;
+            width: 50px;
+            background-color: #1E1F26;
+        }
+        #btn2{
+            height: 50px;
+            width: 120px;
+            background-color: #424655;
+        }
+        #btn3{
+            height: 50px;
+            width: 100px;
+            background-color: #44C66E;
+        }
+        #btn4{
+            height: 50px;
+            width: 120px;
+            background-color: #424655;
+        }
+       
+        /* Media Queries */
+        @media screen and (max-width: 1000px) {
+            #btn1{
+                height: 30px;
+                width: 30px;
+                background-color: #1E1F26;
+            }
+            #btn2{
+                height: 30px;
+                width: 120px;
+                background-color: #424655;
+            }
+            #btn3{
+                height: 30px;
+                width: 100px;
+                background-color: #44C66E;
+            }
+            #btn4{
+                height: 30px;
+                width: 120px;
+                background-color: #424655;
+            }   
+            .main-section{
+                font-weight: bold;
+                font-size: 12px;
+            }
+          }
+    </style>
+</head>
+
+   <!--Header-->
+    <div id="main-header" class="main-header">
+        <nav id="header" class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <a style="color: white; font-weight: 500;" class="navbar-brand" href="#">FCC:Technical Documentation Page</a>
+            </div>
+            <ul class="nav navbar-nav ">
+                <li ><a href="#"><button id="btn1" type="submit" class="btn btn-light"><i style="color: white;" class="fas fa-heart"></i></button></a></li>
+                <li><a href="#"><button  id="btn2" type="submit" class="btn btn-secondary" onclick="changeStyle()">Change View</button></a></li>
+                <li><a href="task1.html"><button  id="btn3" type="submit" class="btn btn-secondary">Sign Up</button></a></li>
+                <li><a href="login.html"><button id="btn4" type="submit" class="btn btn-secondary">Log In</button></a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+    <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+    <!--Main Containt-->
+    <div  class="container-fluid main-doc">
+        <div class="row ">
+          <div style="border-style: solid; border-width: 2px; border-top: 0px; position:sticky; " class="col-sm-3">
+            <div class="row menu">
+                <a class="nav-link text-info innermenu" href="#introduction">Introduction</a>
+            </div>
+            <div class="row menu">
+                <a class="nav-link text-info innermenu" href="#Syntax">Syntax</a>
+            </div>
+            <div class="row menu">
+                <a class="nav-link text-info innermenu" href="#enabling">Enabling</a>
+            </div>
+            <div class="row menu">
+                <a class="nav-link text-info innermenu" href="#datatype">Datatypes</a>
+            </div>
+            <div class="row menu">
+                <a class="nav-link text-info innermenu"href="#ifelse">If..else Statement</a>
+            </div>
+            <div class="row menu">
+                <a class="nav-link text-info innermenu" href="#cookies">Cookies</a>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <!--Introduction Section-->
+            <div class="main-section" id="introduction">    
+                <h4>Introduction</h4>
+                <p class="content">JavaScript is the Programming Language for the Web.
+                JavaScript can update and change both HTML and CSS.
+                JavaScript can calculate, manipulate and validate data.</p>
+                <p class="content">Javascript is a MUST for students and working professionals to become a great Software Engineer specially when they are working in Web Development Domain. I will list down some of the key advantages of learning Javascript:</p>        
+                <ul>
+                    <li>Javascript is the most popular programming language in the world and that makes it a programmer’s great choice. Once you learnt Javascript, it helps you developing great front-end as well as back-end softwares using different Javascript based frameworks like jQuery, Node.JS etc.</li>
+                    <li>Javascript is everywhere, it comes installed on every modern web browser and so to learn Javascript you really do not need any special environment setup. For example Chrome, Mozilla Firefox , Safari and every browser you know as of today, supports Javascript.</li>
+                    <li>Designed for creating network-centric applications.</li>
+                    <li>Complementary to and integrated with Java</li>
+                    <li>Complementary to and integrated with HTML.</li>
+                    <li>Open and cross-platform</li>
+                    <li>Javascript is the most popular programming language in the world and that makes it a programmer’s great choice. Once you learnt Javascript, it helps you developing great front-end as well as back-end softwares using different Javascript based frameworks like jQuery, Node.JS etc.</li>
+                    <li>Javascript is everywhere, it comes installed on every modern web browser and so to learn Javascript you really do not need any special environment setup. For example Chrome, Mozilla Firefox , Safari and every browser you know as of today, supports Javascript.</li>
+                    <li>Designed for creating network-centric applications.</li>
+                    <li>Complementary to and integrated with Java</li>
+                    <li>Complementary to and integrated with HTML.</li>
+                    <li>Open and cross-platform</li>
+                </ul>   
+            </div><hr>
+            <!--Syntax Section-->
+            <div class="main-section" id="Syntax"> 
+                <h4>Syntax</h4>
+                <p class="content">JavaScript can be implemented using JavaScript statements that are placed within the .HTML tags in a web page.You can place the tags, containing your JavaScript, anywhere within your web page, but it is normally recommended that you should keep it within the tagsThe  tag alerts the browser program to start interpreting all the text between these tags as a script. A simple syntax of your JavaScript will appear as follows.</p>
+                <ul>
+                    <li>Language − This attribute specifies what scripting language you are using. Typically, its value will be javascript. Although recent versions of HTML (and XHTML, its successor) have phased out the use of this attribute.</li>
+                    <li>Type − This attribute is what is now recommended to indicate the scripting language in use and its value should be set to "text/javascript".</li>
+                    <li>JavaScript ignores spaces, tabs, and newlines that appear in JavaScript programs. You can use spaces, tabs, and newlines freely in your program and you are free to format and indent your programs in a neat and consistent way that makes the code easy to read and understand.</li>
+                </ul>
+                <textarea style="background-color: #F7F7F7;width: 500px; height: auto;" rows="4" cols="50" readonly>
+                        <script language = "javascript" type = "text/javascript">
+                         
+                             document.write("Hello World!")
+                         
+                        </script>      
+                </textarea>
+            </div><hr>   
+            <!--Enabling  Section--> 
+            <div class="main-section" id="enabling">         
+                <h4>Enabling</h4>
+                <p class="content">All the modern browsers come with built-in support for JavaScript. Frequently, you may need to enable or disable this support manually. This chapter explains the procedure of enabling and disabling JavaScript support in your browsers: Internet Explorer, Firefox, chrome, and Opera.</p>
+                <ul>
+                    <li>Follow Tools → Internet Options from the menu.</li>
+
+                    <li>Select Security tab from the dialog box.</li>
+                        
+                    <li> Click the Custom Level button.</li>
+                        
+                    <li> Scroll down till you find Scripting option.</li>
+                        
+                    <li> Select Enable radio button under Active scripting.</li>
+                        
+                    <li> Finally click OK and come out</li>
+                </ul>
+            </div><hr>
+            <!--datatype Section-->
+            <div class="main-section" id="datatype">         
+                <h4>Datatype</h4>
+                <p class="content">One of the most fundamental characteristics of a programming language is the set of data types it supports. These are the type of values that can be represented and manipulated in a programming language.</p>
+                <ul>
+                    <li>Numbers, eg. 123, 120.50 etc.</li>
+
+                    <li>Strings of text e.g. "This text string" etc.</li>
+                        
+                    <li> Boolean e.g. true or false</li>
+                        
+                    <li> Global Variables − A global variable has global scope which means it can be defined anywhere in your JavaScript code.</li>
+                        
+                    <li>Local Variables − A local variable will be visible only within a function where it is defined. Function parameters are always local to that function.</li>
+                        
+                    <li> ou should not use any of the JavaScript reserved keywords as a variable name. These keywords are mentioned in the next section. For example, break or boolean variable names are not valid.</li>
+                </ul>
+            </div><hr>
+            <!--If Else Statement Section-->
+            <div class="main-section" id="ifelse">         
+                <h4>If Else Statement</h4>
+                <p class="content">JavaScript supports conditional statements which are used to perform different actions based on different conditions. Here we will explain the if..else statement</p>
+                <p class="content">The if statement is the fundamental control statement that allows JavaScript to make decisions and execute statements conditionally.</p>
+                <p class="content">Syntax
+                    <br>The syntax for a basic if statement is as follows
+                </p>
+                <textarea style="background-color: #F7F7F7;width: 500px; height: auto;" rows="4" cols="50" readonly>
+                    <script type = "text/javascript">
+                        if (expression) {
+                            Statement(s) to be executed if expression is true
+                         }
+                     </script>            
+                </textarea>
+                
+                
+            </div><hr>
+            <!--For Loop Section-->
+            <div class="main-section" id="forloop">         
+                <h4>For Loop</h4>
+                <p class="content">One of the most fundamental characteristics of a programming language is the set of data types it supports. These are the type of values that can be represented and manipulated in a programming language.</p>
+                <ul>
+                    <li>The loop initialization where we initialize our counter to a starting value. The initialization statement is executed before the loop begins.</li>
+                    <li>The test statement which will test if a given condition is true or not. If the condition is true, then the code given inside the loop will be executed, otherwise the control will come out of the loop.</li>
+                    <li> The iteration statement where you can increase or decrease your counter.</li>  
+                </ul>
+                <textarea style="background-color: #F7F7F7;width: 500px; height: auto;" rows="4" cols="50" readonly>
+                    <script type = "text/javascript">
+                           var count;
+                           document.write("Starting Loop" + "<br />");
+                           for(count = 0; count < 10; count++) {
+                              document.write("Current Count : " + count );
+                              document.write("<br />");
+                           }         
+                           document.write("Loop stopped!");
+                     </script>            
+                </textarea>
+            </div><hr>
+            <!--Cookies Section-->
+            <div class="main-section" id="cookies">         
+                <h4>Cookies</h4>
+                <p class="content">Web Browsers and Servers use HTTP protocol to communicate and HTTP is a stateless protocol. But for a commercial website, it is required to maintain session information among different pages. For example, one user registration ends after completing many pages. But how to maintain users' session information across all the web pages.</p>
+                <p class="content">In many situations, using cookies is the most efficient method of remembering and tracking preferences, purchases, commissions, and other information required for better visitor experience or site statistics.</p>
+                <ul>
+                    <li>Expires − The date the cookie will expire. If this is blank, the cookie will expire when the visitor quits the browser.</li>
+                    <li>Domain − The domain name of your site.</li>
+                    <li>Path − The path to the directory or web page that set the cookie. This may be blank if you want to retrieve the cookie from any directory or page.</li>
+                    <li>Secure − If this field contains the word "secure", then the cookie may only be retrieved with a secure server. If this field is blank, no such restriction exists.</li>
+                    <li>Name=Value − Cookies are set and retrieved in the form of key-value pairs</li>
+             
+                </ul>
+                <textarea style="background-color: #F7F7F7;width: 500px; height: auto;" rows="4" cols="50" readonly>
+                    <script language = "javascript" type = "text/javascript"> 
+                        document.cookie = "key1 = value1;key2 = value2;expires = date";
+                    </script>      
+                </textarea>
+            </div><hr>          
+            </div>
+        </div>
+      </div>
+        <div class="footer">
+        <button onclick="changeFont1()" class="btn footbtn">.25x</button>
+        <button onclick="changeFont2()" class="btn footbtn">.50x</button>
+        <button onclick="changeFont3()" class="btn footbtn">.100x</button>
+        </div>
+</body>
+<script type="text/javascript">
+    function changeStyle(){
+        var elements=document.getElementsByClassName("main-section");
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            element.style.fontStyle = "italic";
+          }
+    }
+    function changeFont1(){
+        console.log("Hello");
+        //document.getElementById("introduction").style.fontSize="22px" ;
+        var elements=document.getElementsByClassName("main-section");
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            element.style.fontSize = "15px";
+          }
+    }
+    function changeFont2(){
+        console.log("Hello");
+        var elements=document.getElementsByClassName("main-section");
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            element.style.fontSize = "19px";
+          }
+    }
+    function changeFont3(){
+        console.log("Hello");
+        var elements=document.getElementsByClassName("main-section");
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            element.style.fontSize = "23px";
+          }
+    }
+</script>
+</html>

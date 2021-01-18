@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- fontawesome Icon-->
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+</head>
+<style>
+    .navbar-nav{
+        flex-direction: row;
+        padding-right: 0px;
+    }
+    .nav>li{
+        padding-right: 3px;
+    }
+    .vl {
+        border-left: 1px solid gray;
+        height: 20px;
+        margin-right: 10px;
+        margin-top: 8px;
+      }
+    .v2 {
+        border-left: 1px solid gray;
+        height: 20px;
+        margin-right: 10px;
+        margin-top: 4px;
+      }
+    .header-menu{
+        margin-right: 10px; 
+        margin-top: 8px;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus, 
+    button:focus {
+        outline: none;
+    }
+    
+    .td-cust-info{
+        color: #9C9C9C;
+    }
+
+    #main-head-div{ 
+        height: 40px;
+    }
+    #main-head-dropdown {
+        margin-bottom:15px;
+    }
+    #nav-main-dropdown{ 
+        padding-bottom: 10px;
+    }
+    #nav-main-profile {
+        font-size: 14px;
+    }
+    #quick-option{
+         background-color: #F5F8F9;
+          color: #14BAC8;
+          font-weight: 600;
+          font-size: 14px;
+    }
+    #profile-icon{ 
+        font-size: 30px;
+    }
+    #nav-ul{
+        margin-bottom: 15px;
+    } 
+    #nav-ul-li{
+         color: #14BAC8;font-weight: 600;
+    }
+    #btn-new-cust {
+        color:#ffffff;background-color: #FF836B;font-size: 14px;
+    }
+    
+    #btn-new-cust-i{
+        margin-right: 10px; 
+    }
+    
+    #main-div-body{
+        background-color:#FAF9F7;position: fixed;height: 700px;
+    }
+    #main-div-body-inner1 {
+        margin-top: 20px;
+    }
+    #inner-container {
+        background-color: #FFFFFF; width: 80%; height: auto; margin-top: 10px;
+    }
+    #inner-container-row {
+        height: 80px;
+    }
+    #customer-head{
+        padding-top: 10px; font-weight: bold;
+    } 
+    #searchbar 
+        {
+            margin-top: 10px;float: right;
+        }
+    #searchbar-input
+    {
+        background-color: transparent;border-right: none;border-color:#CED4DA ;
+    }
+    #searchbar-icon {
+        font-size: 15px; height: 38px; color: gray;border: 1px solid;border-left: none;outline: none;border-color:#CED4DA ;
+    }
+
+
+    
+    #custSearchbar 
+        {
+            margin-top: 10px;float: right;
+        }
+    #custSearchbar-input
+    {
+        width:380px;  background-color: transparent;border-right: none;border-color:#CED4DA;
+    }
+    #custSearchbar-icon {
+        font-size: 15px; height: 38px; color: gray;border: 1px solid;border-left: none;outline: none;border-color:#CED4DA ;
+    }
+
+    #sync-main
+        {
+            margin-top: 10px;float: left;
+        }
+    #sync-main-btn {
+        color:#ffffff;background-color: #1DB4C0;
+    }
+    .main-ellipsis{  
+        color: #1DB4C0; border:none;background-color: transparent;
+    }
+    .user-info-submenu-li{
+        width: 200px;
+    }
+    .user-info-submenu-viewuser {
+        color: black; text-decoration: none;
+    }
+    .user-info-submenu-viewuser-icon {
+        margin-right:10px;
+    }
+    .user-subdropdown {
+        width: 300px !important;
+    }
+    .user-subdropdown-head{
+        color: black;
+        font-weight:600;
+    }
+    .user-subdropdown-list 
+    {
+        list-style-type:disc;color: #FF836B;
+    }
+    .user-subdropdown{
+        color: black;
+    }
+    .usr-action {
+        margin-right:10px;
+    }
+    .li-page {
+        width: 20px;height: 25px; text-align: center;margin-left: 10px;
+    }
+    .pagination-cntrl {
+        background-color: #EAEEF0; width: 20px;height: 25px; text-align: center;margin-left: 10px;color: #8BACC2;
+    }                    
+    .active-page {
+        color: #FFFFFF; background-color: #14BAC8;width: 20px;height: 25px; text-align: center;margin-left: 10px;
+    }
+    .btn-page-range{
+     background-color: #F5F8F9; color: #14BAC8;font-weight: 600;font-size: 14px;height: 30px;
+    }
+    .pg-range-info {
+        padding-top: 4px;padding-left: 10px;
+    }
+    .pg-range-info-text {
+        color: #B9B9B9;font-size: 15px;
+    }
+    .form-caption {
+        color: #CFCFCF;font-size: 13px;
+    }
+    .table thead > tr > th { border: none; }
+    .table tbody > tr > td { color: #9C9C9C; }
+</style>
+<body>
+    <!--Header-->
+    <div id="main-head-div" >
+        <nav id="header" class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <div id="main-head-dropdown" class="dropdown">
+                    <button id="quick-option"  class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">Quick Option
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu ">
+                      <li><a href="#">HTML</a></li>
+                      <li><a href="#">CSS</a></li>
+                      <li><a href="#">JavaScript</a></li>
+                    </ul>
+                </div>        
+            <ul class="nav navbar-nav" >
+                <li class="header-menu"><i class="fas fa-search"></i></li>
+                <div class="vl"></div>
+                <li class="header-menu"><i class="far fa-bell"></i></li>
+                <div class="vl"></div>
+                <li class="header-menu"><i class="fas fa-cog"></i></i></li>
+                <div class="vl"></div>
+                <li>
+                    <div id="nav-main-dropdown"  class="dropdown">
+                        <p id="nav-main-profile"  class="btn dropdown-toggle" type="button" data-toggle="dropdown">John Doe
+                        <span class="caret"></span></p>
+                        <span><i id="profile-icon"  class="far fa-user-circle"></i></span>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">HTML</a></li>
+                          <li><a href="#">CSS</a></li>
+                          <li><a href="#">JavaScript</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+            </div>
+        </nav>
+    </div>
+    <hr>
+    <!--Sub Header-->
+    <div id="main-header" class="main-header">
+        <nav id="header" class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <ul id="nav-ul" class="nav navbar-nav ">
+                    <li id="nav-ul-li" >Customers</li>
+                    <div class="v2"></div>
+                    <li>Manage customers and customer users</li>
+                    <div class="v2"></div>
+                </ul>    
+                
+            </div>
+            <ul class="nav navbar-nav ">
+                <li>
+                    <button id="btn-new-cust" type="submit" class="btn" data-toggle="modal" data-target="#myModal">
+                        <i id="btn-new-cust-i"  class="fas fa-plus"></i>Create New Customer
+                    </button>
+                </li>
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog  modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <p style="font-size: 20px;font-weight: bold;" class="modal-title">Create New Customers and Users</p>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div style="width: 1000px" class="col-lg-6">
+                                            <p>Customer Name *</p>
+                                            <input type="text" class="form-control" id="custName" required="true" placeholder="Enter Customer Name">
+                                            <p class="form-caption">Please Enter Customer Name</p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p>Customer Email *</p>
+                                            <input type="email" class="form-control" id="custEmail" required="true" placeholder="Enter Customer Email">
+                                            <p class="form-caption">Please Enter Customer Email</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div style="width: 1000px" class="col-lg-6">
+                                            <p>Customer Address</p>
+                                            <input type="text" class="form-control" id="custAddr" placeholder="Enter Customer Address">
+                                            <p class="form-caption">Please Enter Customer Address</p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p>Registration Date *</p>
+                                            <input type="text" class="form-control" id="custRegDate" placeholder="Enter Your Registraion Date">
+                                            <p class="form-caption">Please Enter Customer Registration Date</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                                <div>
+                                                    <p style="font-size: 15px;font-weight: 600;">Add User</p>
+                                                </div>
+                                                <div id="main-head-dropdown" class="dropdown">
+                                                    
+                                                    <button class="btn btn-outline-dark " style="width: 200px;margin-bottom: 70px;" type="button" data-toggle="dropdown">Select User<span style="padding-left: 70px;"><i class="fas fa-caret-down"></i></span></button>
+                                                    <ul class="dropdown-menu ">
+                                                      <li><a href="#">HTML</a></li>
+                                                      <li><a href="#">CSS</a></li>
+                                                      <li><a href="#">JavaScript</a></li>
+                                                    </ul>
+                                                </div>
+                                            
+                                            
+                                        </div>
+                                        <div style="margin-top: 40px;" class="col-lg-6">
+                                            <button style="background-color: #FF836B;color: white;margin-left: 20px;font-weight: 200;" id="btn-usr-add" type="submit" class="btn" >
+                                                <i  id="btn-usr-add-i"  class="fas fa-plus"></i>Add User
+                                            </button>
+                                        </div>
+                                    </div>
+                               </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </ul>
+            </div>
+        </nav>
+    </div>
+    <!--Main Body-->
+    <div id="main-div-body"  class="container-fluid">
+        <div id="main-div-body-inner1" >
+            <div id="inner-container"  class="container">
+                <div id="inner-container-row" class="row">
+                    <div  class="col-lg-6">
+                        <p id="customer-head">Customers</p>
+                    </div>
+                    <div id="searchbar" class="col-lg-4">
+                        <div class="input-group">
+                            <input id="searchbar-input"  type="text" class="form-control" placeholder="Search.." >
+                            <i id="searchbar-icon" class="fas fa-search" ></i>
+                        </div>
+                    </div>  
+                    <div id="sync-main" class="col-lg-2">
+                        <button id="sync-main-btn" type="submit" class="btn" ><i  class="fas fa-sync"></i></button>
+                    </div>
+                </div>
+                <!--Table Header-->
+                <div class="row">
+                    <div class="col-sm-1">
+                        <table >
+                            <thead>
+                                <tr>
+                                  
+                                  <th>
+                                    <input type="checkbox" value="">
+                                  </th>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div class="col-sm-2">
+                        <table >
+                            <thead>
+                                <tr>
+                                  
+                                  <th>
+                                    Customer Name
+                                  </th>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div class="col-sm-3">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div class="col-sm-3">
+                        <table >
+                            <thead>
+                                <tr >
+                                    <th >Address</th>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div  class="col-sm-2">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <th>Registration Date</th>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div  class="col-sm-1">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <th>Actions</th>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    
+                </div>
+                <hr>
+                <!--Row1-->
+                <div class="row">
+                    <div class="col-sm-1">
+                        <table >
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm-2">
+                        <table >
+                            <tr>
+                                <td class="td-cust-info">
+                                    AVA 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm-2">
+                        <table >
+                            
+                                <tr>
+                                    <td class="td-cust-info">abc@gmail.com</td>
+                                </tr>
+                              
+                        </table>
+                    </div>
+                    <div class="col-sm-4">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <td class="td-cust-info">591 Memorial De,Chicopee MA 1020</td>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div  class="col-sm-2">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <td class="td-cust-info">02-02-2020</td>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div  class="col-sm-1">
+                        <table >
+                            
+                                <tr>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary-outline " data-toggle="dropdown">
+                                                <i   class="fas fa-ellipsis-h main-ellipsis" ></i>
+                                                
+                                              </button>
+                                            <ul class="dropdown-menu" >
+                                                <li class="dropdown-submenu dropleft user-info-submenu-li"  href="#">
+                                                    <a href="#" class="test dropdown-item user-info-submenu-viewuser" tabindex="-1"><span><i   class="fas fa-binoculars user-info-submenu-viewuser-icon"></i></span>View Users</a>
+                                              
+                                                    <ul class="dropdown-menu user-subdropdown" >
+                                                      <li><p tabindex="-1" class="user-subdropdown-head">Customer 1 User</p></li>
+                                                      
+                                                      <ul class="user-subdropdown-list" id="funcMenu1">
+                                                          <li onclick="viewCustInfo('funcMenu1')" ><span class="user-subdropdown">Customer 1 User 1</span></li>
+                                                          <li onclick="viewCustInfo('funcMenu1')"><span class="user-subdropdown">Customer 1 User 1</span></li>
+                                                          <li onclick="viewCustInfo('funcMenu1')"><span class="user-subdropdown">Customer 1 User 1</span></li>
+                                                      </ul>
+
+                                                    </ul>
+                                                  </li>
+                                                  <div class="modal" id="myModal">
+                    <div class="modal-dialog  modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <p style="font-size: 20px;font-weight: bold;" class="modal-title">Create New Customers and Users</p>
+                              
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div style="width: 1000px" class="col-lg-6">
+                                            <p>Customer Name *</p>
+                                            <input type="text" class="form-control" id="custName" required="true" placeholder="Enter Customer Name">
+                                            <p class="form-caption">Please Enter Customer Name</p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p>Customer Email *</p>
+                                            <input type="email" class="form-control" id="custEmail" required="true" placeholder="Enter Customer Email">
+                                            <p class="form-caption">Please Enter Customer Email</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div style="width: 1000px" class="col-lg-6">
+                                            <p>Customer Address</p>
+                                            <input type="text" class="form-control" id="custAddr" placeholder="Enter Customer Address">
+                                            <p class="form-caption">Please Enter Customer Address</p>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p>Registration Date *</p>
+                                            <input type="text" class="form-control" id="custRegDate" placeholder="Enter Your Registraion Date">
+                                            <p class="form-caption">Please Enter Customer Registration Date</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                                <div>
+                                                    <p style="font-size: 15px;font-weight: 600;">Add User</p>
+                                                </div>
+                                                <div id="main-head-dropdown" class="dropdown">
+                                                    
+                                                    <button class="btn btn-outline-dark " style="width: 200px;margin-bottom: 70px;" type="button" data-toggle="dropdown">Select User<span style="padding-left: 70px;"><i class="fas fa-caret-down"></i></span></button>
+                                                    <ul class="dropdown-menu ">
+                                                      <li><a href="#">HTML</a></li>
+                                                      <li><a href="#">CSS</a></li>
+                                                      <li><a href="#">JavaScript</a></li>
+                                                    </ul>
+                                                </div>
+                                            
+                                            
+                                        </div>
+                                        <div style="margin-top: 40px;" class="col-lg-6">
+                                            <button style="background-color: #FF836B;color: white;margin-left: 20px;font-weight: 200;" id="btn-usr-add" type="submit" class="btn" >
+                                                <i  id="btn-usr-add-i"  class="fas fa-plus"></i>Add User
+                                            </button>
+                                        </div>
+                                    </div>
+                               </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                                                <li><a  tabindex="-1" class="dropdown-item" href="#"><span><i   class="fas fa-pen-square usr-action"></i></span>Edit Users</a></li>
+                                                <li><a  tabindex="-1" class="dropdown-item" href="#"><span><i  class="far fa-trash-alt usr-action"></i></span>Delete Users</a></li>
+                                             
+                                            </ul>
+                                          </div>
+                                    </td>
+                                </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+                <!--Row 1 end-->
+                <hr>
+                <!--Row2-->
+                <div class="row">
+                    <div class="col-sm-1">
+                        <table >
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm-2">
+                        <table >
+                            <tr>
+                                <td class="td-cust-info">
+                                    AVA 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm-2">
+                        <table >
+                            
+                                <tr>
+                                    <td class="td-cust-info">abc@gmail.com</td>
+                                </tr>
+                              
+                        </table>
+                    </div>
+                    <div class="col-sm-4">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <td class="td-cust-info">591 Memorial De,Chicopee MA 1020</td>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div  class="col-sm-2">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <td class="td-cust-info">02-02-2020</td>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div  class="col-sm-1">
+                        <table >
+                            
+                            <tr>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary-outline " data-toggle="dropdown">
+                                            <i  class="fas fa-ellipsis-h main-ellipsis" ></i>
+                                          </button>
+                                        <ul class="dropdown-menu" >
+                                            <li class="dropdown-submenu dropleft user-info-submenu-li"  href="#">
+                                                <a href="#" class="test dropdown-item user-info-submenu-viewuser" tabindex="-1" ><span><i class="fas fa-binoculars user-info-submenu-viewuser-icon"></i></span>View Users</a>
+                                          
+                                                <ul class="dropdown-menu user-subdropdown" >
+                                                  <li><p class="user-subdropdown-head" tabindex="-1"  >Customer 2 User</p></li>
+                                                  
+                                                  <ul class="user-subdropdown-list" id="funcMenu2">
+                                                      <li onclick="viewCustInfo('funcMenu2')"><span class="user-subdropdown">Customer 2 User 1</span></li>
+                                                      <li onclick="viewCustInfo('funcMenu2')"><span class="user-subdropdown">Customer 2 User 1</span></li>
+                                                      <li onclick="viewCustInfo('funcMenu2')"><span class="user-subdropdown">Customer 2 User 1</span></li>
+                                                  </ul>
+                                                </ul>
+                                              </li>
+                                            <li><a  tabindex="-1" class="dropdown-item" href="#"><span><i class="fas fa-pen-square usr-action"></i></span>Edit Users</a></li>
+                                            <li><a  tabindex="-1" class="dropdown-item" href="#"><span><i class="far fa-trash-alt usr-action"></i></span>Delete Users</a></li>
+                                         
+                                        </ul>
+                                    </div>      
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+                <!--Row 2 end-->
+                <hr>
+                <!--Row3-->
+                <div class="row">
+                    <div class="col-sm-1">
+                        <table >
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm-2">
+                        <table >
+                            <tr>
+                                <td class="td-cust-info">
+                                    AVA 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm-2">
+                        <table >
+                            
+                                <tr>
+                                    <td class="td-cust-info">abc@gmail.com</td>
+                                </tr>
+                              
+                        </table>
+                    </div>
+                    <div class="col-sm-4">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <td class="td-cust-info">591 Memorial De,Chicopee MA 1020</td>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div  class="col-sm-2">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <td class="td-cust-info">02-02-2020</td>
+                                </tr>
+                              </thead>
+                        </table>
+                    </div>
+                    <div  class="col-sm-1">
+                        <table >
+                            <tr>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary-outline " data-toggle="dropdown">
+                                            <i  class="fas fa-ellipsis-h main-ellipsis" ></i>
+                                          </button>
+                                        <ul class="dropdown-menu" >
+                                            <li class="dropdown-submenu dropleft user-info-submenu-li"  href="#">
+                                                <a href="#" class="test dropdown-item user-info-submenu-viewuser" tabindex="-1" ><span><i class="fas fa-binoculars user-info-submenu-viewuser-icon"></i></span>View Users</a>
+                                          
+                                                <ul class="dropdown-menu user-subdropdown" >
+                                                  <li><p class="user-subdropdown-head" tabindex="-1"  >Customer 3 User</p></li>
+                                                  
+                                                  <ul class="user-subdropdown-list" id="funcMenu3" >
+                                                      <li  onclick="viewCustInfo('funcMenu3')"><span class="user-subdropdown">Customer 3 User 1</span></li>
+                                                      <li  onclick="viewCustInfo('funcMenu3')"><span class="user-subdropdown">Customer 3 User 1</span></li>
+                                                      <li  onclick="viewCustInfo('funcMenu3')"><span class="user-subdropdown">Customer 3 User 1</span></li>
+                                                  </ul>
+                                                </ul>
+                                              </li>
+                                            <li><a  tabindex="-1" class="dropdown-item" href="#"><span><i class="fas fa-pen-square usr-action"></i></span>Edit Users</a></li>
+                                            <li><a  tabindex="-1" class="dropdown-item" href="#"><span><i class="far fa-trash-alt usr-action"></i></span>Delete Users</a></li>
+                                         
+                                        </ul>
+                                    </div>        
+                                </td>
+                            </tr>                     
+                        </table>
+                    </div>
+                </div>
+                <!--Row 3 end-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <ul class="pagination">
+                            <li class="pagination-cntrl" > <i class="fas fa-angle-double-left" ></i> </li>
+                            <li class="pagination-cntrl"><i class="fas fa-angle-left"></i></li>
+
+                            <li class="active-page" >1</li>
+                            <li class="li-page" >2</li>
+                            <li class="li-page" >3</li>
+                            <li class="li-page" >4</li>
+                            <li class="li-page" >5</li>
+
+                            <li class="pagination-cntrl"  ><i class="fas fa-angle-right"></i></li>
+                            <li class="pagination-cntrl" ><i class="fas fa-angle-double-right"></i></li>
+                          </ul>
+                    </div>
+                    <div  class="col-3-lg">
+                        <button class="btn btn-link dropdown-toggle btn-page-range" type="button" data-toggle="dropdown">10
+                            <span class="caret"></span> </button>
+                            <ul class="dropdown-menu ">
+                              <li><a href="#">20</a></li>   
+                              <li><a href="#">30</a></li>
+                              <li><a href="#">40</a></li>
+                            </ul>
+                        
+                    </div>
+                    <div class="col-1-lg pg-range-info">
+                       <p class="pg-range-info-text" >Showing 1-10 out of 350</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- The Customer Users Modal -->
+        <div   class="modal" id="userList">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+            
+                  <!-- Modal Header -->
+                  <div style="border: none; height: 50px;" class="modal-header">
+                    <div class="container">
+                        <div class="row">
+                            <div  class="col-lg-4">
+                                <p id="customer-head">Customers Users   </p>
+                            </div>
+                            <div id="custSearchbar" class="col-lg-8">
+                                <div class="input-group">
+                                    <input id="custSearchbar-input"  type="text" class="form-control" placeholder="Search.." >
+                                    <i id="custSearchbar-icon" class="fas fa-search" ></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+            
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <table class="table">
+                                <thead >
+                                  <tr >
+                                    
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Email</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    
+                                    <td>Emma</td>
+                                    <td>Smith</td>
+                                    <td>abc@gmail.com</td>
+                                  </tr>
+                                  <tr>
+                                    
+                                    <td>Charlotte</td>
+                                    <td>Johnson</td>
+                                    <td>abc@gmail.com</td>
+                                  </tr>
+                                  <tr>
+                                    
+                                    <td>Sophia</td>
+                                    <td>Willams</td>
+                                    <td>abc@gmail.com</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                  </div>
+            
+                  <!-- Modal footer -->
+                  <div style="border: none;" class="modal-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <ul class="pagination">
+                                    <li class="pagination-cntrl" > <i class="fas fa-angle-double-left"></i> </li>
+                                    <li class="pagination-cntrl"><i class="fas fa-angle-left"></i></li>
+        
+                                    <li class="active-page" >1</li>
+                                    <li class="li-page" >2</li>
+                                    <li class="li-page" >3</li>
+                                    <li class="li-page" >4</li>
+                                    <li class="li-page" >5</li>        
+                                    <li class="pagination-cntrl"  ><i class="fas fa-angle-right"></i></li>
+                                    <li class="pagination-cntrl" ><i class="fas fa-angle-double-right"></i></li>
+                                  </ul>
+                            </div>
+                            <div  class="col-3-lg">
+                                <button class="btn btn-link dropdown-toggle btn-page-range" type="button" data-toggle="dropdown">10
+                                    <span class="caret"></span> </button>
+                                    <ul class="dropdown-menu ">
+                                      <li><a href="#">20</a></li>   
+                                      <li><a href="#">30</a></li>
+                                      <li><a href="#">40</a></li>
+                                    </ul>
+                                
+                            </div>
+                            <div class="col-1-lg pg-range-info">
+                               <p class="pg-range-info-text" >Showing 1-10 out of 350</p>
+                            </div>
+        
+                        </div>
+                    </div>
+                  </div>
+            
+                </div>
+              </div>
+        </div>
+
+
+</body>
+
+<script>
+    $(document).ready(function(){
+      $('.dropdown-submenu a.test').on("click", function(e){
+        $(this).next('ul').toggle();
+        e.stopPropagation();
+        e.preventDefault();
+      });
+    });
+    function viewCustInfo(cid){
+        console.log("Helloo   "+cid)
+        switch(cid){
+            case "funcMenu1":
+                document.getElementById("funcMenu1").style.display = 'none';
+                document.getElementById("funcMenu1").setAttribute("data-toggle", "modal");
+                document.getElementById("funcMenu1").setAttribute("data-target", "#userList");
+
+                break;
+
+            case "funcMenu2":
+                document.getElementById("funcMenu2").style.display = 'none';
+                document.getElementById("funcMenu2").setAttribute("data-toggle", "modal");
+                document.getElementById("funcMenu2").setAttribute("data-target", "#userList");
+                break;
+            
+            case "funcMenu3":
+                document.getElementById("funcMenu3").style.display = 'none';
+                document.getElementById("funcMenu3").setAttribute("data-toggle", "modal");
+                document.getElementById("funcMenu3").setAttribute("data-target", "#userList");
+
+                break;
+
+        }
+    }
+    function refreshpage() {
+        window.location.reload();
+    }
+    </script>
+    
+</html>
